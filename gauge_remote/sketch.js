@@ -35,15 +35,10 @@ function setup() {
 
 function draw() {
   background(0)
-    rect(0,0, width, gaugeValue);
+    rect(0,0, width, map(gaugeValue,0,350,0,height));
 
 }
 
-function drawGauge(GaugeSteps, GaugeIncrement, space1, space2, space3){
-  for (let i=0; i<space1; i++){
-    rect(0,0,gaugevalue, 50);
-  }
-}
 
 function touchMoved() {  
   
