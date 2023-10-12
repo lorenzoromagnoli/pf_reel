@@ -1,12 +1,11 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color: #000;
+  overflow: hidden;
+  position:fixed;
 }
 canvas {
   display: block;
+  overflow: hidden;
 }
-
-.preview-nav{
-  display:none !important;
-}
-

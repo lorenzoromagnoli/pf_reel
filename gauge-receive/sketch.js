@@ -106,10 +106,13 @@ function draw() {
   drawGauge()
   pop()
   
+
+  push()
+  translate(0,50)
   drawSpeed(gaugeValue, "MPH")
   drawTime()
   drawFixedTime('12:34:12')
-  
+  pop()
   if (gaugeValue>(350/100)*80){
     setColors(theme2)    
   }else{
@@ -127,9 +130,9 @@ function drawSpeed(value, unit){
   fill(colors.frontColorBright)
   textSize(75)
   textAlign(LEFT)
-  text(value, screenPadding, height/2)  
+  text(value, screenPadding, 300)  
   textSize(18)
-  text(unit, screenPadding, height/2+20)  
+  text(unit, screenPadding, 300+20)  
 } 
 
 
@@ -171,7 +174,7 @@ function drawGrid(segments){
 function drawFixedTime(timeString){
     
    let positionX=width-screenPadding;
-  let positionY=height/2+20;
+  let positionY=300+20;
   let fontSpace=20;
   
   for (let i=0; i<timeString.length; i++ ){
@@ -197,7 +200,7 @@ function drawTime(){
   let timeString=minutes+":"+seconds+":"+milliseconds;
   let fontSpace=25;
   let positionX=width-screenPadding;
-  let positionY=height/2;
+  let positionY=300;
   
   
   for (let i=0; i<timeString.length; i++ ){
@@ -267,4 +270,8 @@ function gradientLine(x1, y1, x2, y2, color1, color2) {
   this.drawingContext.strokeStyle = grad;
 
   line(x1, y1, x2, y2);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
