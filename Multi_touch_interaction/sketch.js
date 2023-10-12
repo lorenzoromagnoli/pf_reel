@@ -86,7 +86,6 @@ function preload(){
   console.log('loaded');
 }
 
-
 function setup(){
  createCanvas(windowWidth,windowHeight);
   
@@ -102,7 +101,7 @@ function setup(){
 }
 
 function draw() {
-  background('#0046FF');
+  background('black');
   
   updateTouchPosition();
 
@@ -175,3 +174,7 @@ document.addEventListener("gestureend", function (e) {
 	  e.preventDefault();
     document.body.style.zoom = 1;
 });
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
