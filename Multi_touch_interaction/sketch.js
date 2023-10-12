@@ -22,7 +22,7 @@ class touchTarget{
     noFill();
     //strokeWeight(distance/20);
     
-    if (true){
+    if (this.isActive){
       fill(0)
       ellipse(this.startX, this.startY, 12)
       noFill()
