@@ -1,6 +1,7 @@
 
 
 let expansivaFont;
+let RobotoFont;
 
 let touchTargets = [];
 
@@ -26,6 +27,8 @@ class touchTarget{
       fill(0)
       ellipse(this.startX, this.startY, 12)
       noFill()
+
+      stroke('#555')
       ellipse(this.x, this.y, this.distance*0.5)  
       line(this.startX, this.startY, this.x,this.y);
       textAlign(CENTER);
@@ -35,16 +38,26 @@ class touchTarget{
      //fill (0);
      //fllipse(this.x, this.y, 160)
       
-      this.drawDial (this.x, this.y, 50, 160, this.distance);
+      this.drawDial (this.x, this.y, 20, 50, this.distance);
 
       //ellipse(this.startX+((this.x-this.startX)/2), this.startY+((this.y-this.startY)/2), 50)
         
       fill ('white');
-      textSize(24)
+      textSize(32)
       //text(this.distance, this.startX+((this.x-this.startX)/2), this.startY+((this.y-this.startY)/2))
-      textAlign(CENTER)
+      textAlign(LEFT)
 
-      text(this.distance, this.startX, this.startY-20)
+      text(Math.round(this.distance), this.startX+20, this.startY)
+
+      textFont(robotoFont);
+
+      textSize(10)
+      fill('#555')
+      text ('x: '+this.x ,this.startX+20, this.startY+20)
+      text ('y: '+this.y ,this.startX+20, this.startY+40)
+      text (millis(),this.startX+20, this.startY+60)
+
+      textFont(expansivaFont);
 
     }
   }
@@ -56,9 +69,19 @@ class touchTarget{
       stroke('white');
         push()
         translate (x,y);
-        rotate(i*3.3)
-        //scale(this.distance/100/2)
-        line(innerRadius,0,outerRadius,0)
+        rotate(i*3.3-this.distance/4)
+
+        if (i*3.3>360){
+          strokeWeight(20)
+          stroke('#999')
+          strokeCap(SQUARE)
+          line(innerRadius+this.distance/6,0,outerRadius+this.distance/6,0)
+        }else{
+          stroke('#999')
+          strokeWeight(1)
+          line(innerRadius+this.distance/6,0,outerRadius+this.distance/6,0)
+        }
+        
       pop()
     }  
   }
@@ -66,6 +89,8 @@ class touchTarget{
 
 function preload(){
   expansivaFont=loadFont("Expansiva.otf");
+  robotoFont=loadFont("RobotoMono-Light.ttf");
+
   console.log('loaded');
 }
 
