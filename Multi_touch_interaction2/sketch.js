@@ -53,6 +53,7 @@ class touchTarget{
 
       textSize(10)
       fill('#555')
+     
       text ('x: '+this.x ,this.startX+20, this.startY+20)
       text ('y: '+this.y ,this.startX+20, this.startY+40)
       text (millis(),this.startX+20, this.startY+60)
