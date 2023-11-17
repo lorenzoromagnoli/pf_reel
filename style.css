@@ -1,0 +1,49 @@
+html{
+    background-color: #000;
+}
+
+body{
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.table{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    align-items: stretch;
+
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .row{
+        flex-direction: column;
+    }
+}
+
+.title{
+  flex-basis: 25%;
+  text-align: left;
+}
+.update{
+    flex-basis: 25%;
+    text-align: right;
+}
+.notes{
+    flex-basis: 50%;
+    text-align: left;
+}
+
+a{
+    color: #fff;
+}
